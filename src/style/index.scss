@@ -13,6 +13,7 @@ html {
     font-size: 1.5rem;
   }
 }
+
 h1,
 h2,
 h3,
@@ -39,19 +40,20 @@ h6 {
 }
 
 body {
-  background: $white;
-  color: $black;
+  background: $black;
+  color: $white;
   margin: 0;
 }
+
 body::-webkit-scrollbar {
   width: 0.5em;
 }
 body::-webkit-scrollbar-track {
-  background-color: lighten($black, 20%);
+  background-color: lighten($black, 10%);
   box-shadow: $shadow;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: darken($white, 10%);
+  background-color: darken($black, 5%);
 }
 
 button {
@@ -78,6 +80,7 @@ a {
     color: darken($teal, 10%);
   }
 }
+
 ::selection {
   background: $teal;
   color: $white;
@@ -91,30 +94,5 @@ a {
 
 
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: $black;
-    color: $white;
-  }
-  body::-webkit-scrollbar-track {
-    background-color: lighten($black, 10%);
-    box-shadow: $shadow;
-  }
-  body::-webkit-scrollbar-thumb {
-    background-color: darken($black, 5%);
-  }
-  h3 {
-    color: $yellow
-  }
-  a {
-    color: $teal;
-    transition: $transition;
-    &:hover {
-      color: darken($teal, 10%);
-    }
-  }
-  ::selection {
-    background: $teal;
-    color: $white;
-  }
-}
+
+  
