@@ -15,17 +15,13 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapState, mapActions } from "vuex";
 
-interface YourComponentType extends Vue {
-  validate(): void;
-}
-
 @Component({
   computed: mapState(["selected"]),
   methods: {
     ...mapActions({ selectCard: "selectCard" }),
     select(event: { target: any }, card: Object): void {
       let btn = event.target.closest("button");
-      this.selectCard({ card, btn });
+      this.$store.dispatch("selectCard", { card, btn });
     }
   }
 })
