@@ -7,16 +7,12 @@ interface Card {
 	card: { text: string; answer: string }
 	btn: Element
 }
-
-interface State {
-	selected: {
-		first: Card
-		second: Card
-	}
-	message: Object
+interface AppState {
+	selected: object
+	message: object
 }
 
-export default new Vuex.Store({
+export default new Vuex.Store<AppState>({
 	state: {
 		selected: {
 			first: Object,
