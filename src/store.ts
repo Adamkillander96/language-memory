@@ -5,14 +5,12 @@ Vue.use(Vuex)
 
 interface Card {
 	card: { text: string; answer: string }
-	btn: Element
-}
-interface AppState {
-	selected: object
-	message: object
+	btn: {
+		classList: any
+	}
 }
 
-export default new Vuex.Store<AppState>({
+export default new Vuex.Store({
 	state: {
 		selected: {
 			first: Object,
@@ -42,36 +40,36 @@ export default new Vuex.Store<AppState>({
 				commit('setFirstCard', data)
 			} else {
 				commit('setSecondCard', data)
-				dispatch('evaluateSelectedCards')
+				dispatch('evaluateSelectedCards', state.selected)
 			}
 		},
-		evaluateSelectedCards({ state, commit, dispatch }) {
+		evaluateSelectedCards({ commit, dispatch }, data) {
 			if (
-				state.selected.first.card.text === state.selected.second.card.answer ||
-				state.selected.first.card.answer === state.selected.second.card.text
+				data.first.card.text === data.second.card.answer ||
+				data.first.card.answer === data.second.card.text
 			) {
 				commit('setMessage', { text: 'hurray!', type: 'success' })
-				dispatch('correct')
+				dispatch('correct', data)
 			} else {
 				commit('setMessage', { text: 'Nope!', type: 'wrong' })
-				dispatch('wrong')
+				dispatch('wrong', data)
 			}
 		},
-		wrong({ commit, state }) {
-			state.selected.first.btn.classList.add('wrong')
-			state.selected.second.btn.classList.add('wrong')
+		wrong({ commit, state }, data) {
+			data.first.btn.classList.add('wrong')
+			data.second.btn.classList.add('wrong')
 			window.setTimeout(() => {
-				state.selected.first.btn.classList.remove('open', 'wrong')
-				state.selected.second.btn.classList.remove('open', 'wrong')
+				data.first.btn.classList.remove('open', 'wrong')
+				data.second.btn.classList.remove('open', 'wrong')
 				commit('clearSelected')
 			}, 1500)
 		},
-		correct({ commit, state }) {
-			state.selected.first.btn.classList.add('correct')
-			state.selected.second.btn.classList.add('correct')
+		correct({ commit, state }, data) {
+			data.first.btn.classList.add('correct')
+			data.second.btn.classList.add('correct')
 			window.setTimeout(() => {
-				state.selected.first.btn.classList.add('closing')
-				state.selected.second.btn.classList.add('closing')
+				data.first.btn.classList.add('closing')
+				data.second.btn.classList.add('closing')
 				commit('clearSelected')
 			}, 1500)
 		}
