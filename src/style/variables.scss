@@ -1,0 +1,31 @@
+$black: #11151c;
+$white: #fdfdff;
+
+$blue   : #2364aa;
+$yellow : #FFBC42;
+$red    : #D81159;
+$green  : #26A96C;
+
+$purple   : #6D326D;
+$teal     : #2CDA9D;
+$turquoise: #16BAC5;
+$orange   : #FBB13C;
+
+$lake : linear-gradient(to right top,#2364aa, #0080b2, #0097a0,#35a881, #8cb369);
+$sky  : linear-gradient(to left top, darken($green, 2%), darken($green, 1%), $green, lighten($green, 1%), lighten($green, 2%));
+$fire : linear-gradient(to left top, #db3a34, #d42f42, #ca284e, #be2558, #b02661);
+$grass: linear-gradient(to left top, #8cb369, #80bd71, #70c77d, #58d08b, #2cda9d);
+$night: linear-gradient(to bottom, #6d326d, #622d62, #582758, #4d224d, #431d43);
+$spring: linear-gradient(to right top, #e5a033, #ecaa3c, #f2b445, #f9be4e, #ffc857);
+$gold: linear-gradient(to right top, #cb8d2b, #d39734, #daa23e, #e2ac47, #e9b751);
+
+$body-font: 'Quicksand', sans-serif;
+$head-font: 'Oswald', sans-serif;
+
+$max-width: 1200px;
+$breakpoint: 800px;
+
+$shadow: 0 2px 4px rgba($black, 0.25);
+$shadow-lg: 0 4px 6px rgba(17, 21, 28, 0.5);
+$transition: 0.2s ease-in-out;
+

@@ -1,0 +1,120 @@
+@import './variables.scss';
+
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: $body-font;
+  font-weight: 400;
+  font-size: 2rem;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 1.5rem;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $head-font;
+  font-weight: 700;
+  margin-top: 0;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4,
+h5,
+h6 {
+  margin-bottom: 1em;
+}
+
+body {
+  background: $white;
+  color: $black;
+  margin: 0;
+}
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+body::-webkit-scrollbar-track {
+  background-color: lighten($black, 20%);
+  box-shadow: $shadow;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: darken($white, 10%);
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  background: none;
+}
+
+ul {
+  list-style-type: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: $teal;
+  transition: $transition;
+  &:hover {
+    color: darken($teal, 10%);
+  }
+}
+::selection {
+  background: $teal;
+  color: $white;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: $black;
+    color: $white;
+  }
+  body::-webkit-scrollbar-track {
+    background-color: lighten($black, 10%);
+    box-shadow: $shadow;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: darken($black, 5%);
+  }
+  h3 {
+    color: $yellow
+  }
+  a {
+    color: $teal;
+    transition: $transition;
+    &:hover {
+      color: darken($teal, 10%);
+    }
+  }
+  ::selection {
+    background: $teal;
+    color: $white;
+  }
+}
