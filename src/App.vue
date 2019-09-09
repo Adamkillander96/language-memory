@@ -2,6 +2,9 @@
   <div id="memory">
     <nav class="nav container" id="nav">
       <ul class="nav-list">
+        <li class="nav-item left">
+          <span class="link">Memory Game</span>
+        </li>
         <li class="nav-item">
           <router-link class="link" exact to="/">Home</router-link>
         </li>
@@ -33,6 +36,11 @@
       background: rgba(255, 255, 255, 0.05);
     }
   }
+}
+
+.left {
+  margin-right: auto;
+  font-family: $head-font;
 }
 
 @media (prefers-color-scheme: dark) {

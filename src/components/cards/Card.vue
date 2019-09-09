@@ -2,7 +2,7 @@
   <li class="card">
     <button :id="card.text" class="card-body" @click="select($event, card)">
       <div class="card-text front">
-        <i class="fad fa-dice-d6 fa-fw fa-8x"></i>
+        <i class="fad fa-fw" :class="'fa-' + list[index]"></i>
       </div>
       <div class="card-text back">
         <span>{{ card.text }}</span>
@@ -23,10 +23,18 @@ import { mapState, mapActions } from "vuex";
       let btn = event.target.closest("button");
       this.$store.dispatch("selectCard", { card, btn });
     }
+  },
+  data: () => ({
+    list: ["diamond", "spade", "club", "heart"]
+  }),
+  props: {
+    card: Object,
+    index: Number
   }
 })
 export default class Card extends Vue {
   @Prop() private card!: Object;
+  private cardIndex!: Number;
 }
 </script>
 
@@ -34,6 +42,7 @@ export default class Card extends Vue {
 @import "@/style/variables.scss";
 
 .svg-inline--fa {
+  font-size: 2rem;
   .fa-primary {
     fill: $white;
   }
@@ -46,10 +55,12 @@ export default class Card extends Vue {
   position: relative;
   height: 300px;
   perspective: 1000px;
-  flex: 1 1 auto;
+  flex: 1 1 50%;
   padding: 0 15px 15px;
   background-color: transparent;
-
+  @media (min-width: 750px) {
+    flex: 1 1 auto;
+  }
   .card-body {
     background: darken($turquoise, 20%);
     position: relative;
@@ -67,10 +78,12 @@ export default class Card extends Vue {
         opacity: 0;
       }
       &.correct .back {
-        background-image: $grass;
+        background: $grass;
+        backface-visibility: visible;
       }
       &.wrong .back {
-        background-image: $fire;
+        background: $fire;
+        backface-visibility: visible;
       }
     }
     .card-text {
