@@ -1,9 +1,9 @@
 <template>
   <article id="game" class="game">
-    <Memory msg="Memory Game" />
+    <Memory title="Language memory game" />
     <section>
       <ul class="list">
-        <Card v-for="(card, key) in cards" :key="key" :card="card" />
+        <Card v-for="(card, key) in cards" :key="key" :card="card" :index="key" />
       </ul>
     </section>
   </article>
